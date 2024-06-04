@@ -74,6 +74,17 @@ function obtenerFormularioJquery() {
         });
     } else {
         $("#errores").empty()
+        var data = {
+            nombre: nombre,
+            vacuna: vacuna,
+            precio:precio,
+            fecha:fecha,
+            proxDosis:proxDosis
+          }
+          console.log(data)
+          Pageclip.send('KROHShNYpz4mUkB2Na3Dj2V8n7BHvR3H', 'Vacunas', data, function (error, response) {
+            console.log('saved?', !!error, '; response:', error || response)
+          })
         Swal.fire({
             title: "Confirmacion!",
             text: "Tu informacion a sido enviada exitosamente!",
